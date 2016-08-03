@@ -51,13 +51,31 @@ var_dump($service1 instanceof Lulu\Service\Service); // true
 var_dump($service1 === $service2); // true
 
 //使用4
-// register the service as an instance against an alias
-$container->add('service', new Acme\Service\SomeService);
+// 用别名给一个类的实例注册
+$container->add('service', new Lulu\Service\Service);
 
-// you retrieve the service in exactly the same way, however, each time you
-// call `get` you will retrieve the same instance
-$service1 = $container->get('Acme\Service\SomeService');
-$service2 = $container->get('Acme\Service\SomeService');
-
-var_dump($service1 instanceof Acme\Service\SomeService); // true
+// 获取服务的方法还是和之前一样使用Get,但是这样子得到的是同一个实例
+$service1 = $container->get('Lulu\Service\Service');
+$service2 = $container->get('Lulu\Service\Service');
+echo "<br />";
+var_dump($service1 instanceof Lulu\Service\Service); // true
 var_dump($service1 === $service2); // true
+
+
+//测试构造器注入
+echo "construct injection <br />";
+
+
+// 用接口实现作为接口的别名，可以便于和其他的接口实现交互
+$container->add('Lulu\Session\StorageInterface', 'Lulu\Session\Storage');
+
+$container
+    ->add('Lulu\Session\Session')
+    ->withArgument('Lulu\Session\StorageInterface')
+    ->withArgument(new League\Container\Argument\RawArgument('my_super_secret_session_key'));
+
+$session = $container->get('Lulu\Session\Session');
+
+var_dump($session instanceof Lulu\Session\Session); // true
+var_dump($session->storage instanceof Lulu\Session\Storage); // true
+var_dump($session->sessionKey === 'my_super_secret_session_key'); // true
