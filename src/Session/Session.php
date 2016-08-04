@@ -23,9 +23,9 @@ class Session
 interface StorageInterface
 {
 
+
 }
 
-class storage implements  StorageInterface
+class Storage implements  StorageInterface
 {
-
 }

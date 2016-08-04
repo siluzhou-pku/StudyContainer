@@ -62,10 +62,9 @@ var_dump($service1 instanceof Lulu\Service\Service); // true
 var_dump($service1 === $service2); // true
 
 
-//测试构造器注入
-echo "construct injection <br />";
 
 
+/*
 // 用接口实现作为接口的别名，可以便于和其他的接口实现交互
 $container->add('Lulu\Session\StorageInterface', 'Lulu\Session\Storage');
 
@@ -78,4 +77,31 @@ $session = $container->get('Lulu\Session\Session');
 
 var_dump($session instanceof Lulu\Session\Session); // true
 var_dump($session->storage instanceof Lulu\Session\Storage); // true
+var_dump($session->sessionKey === 'my_super_secret_session_key'); // true
+*/
+//测试用设值方式注入
+
+
+
+$container->add('Lulu\Session\StorageInterface2', 'Lulu\Session\Storage2');
+
+$container
+    ->add('Lulu\Session\Session2')
+    ->withMethodCall(
+        'setStorage',
+        [
+            'Lulu\Session\StorageInterface2'
+        ]
+    )
+    ->withMethodCall(
+        'setSessionKey',
+        [
+            new League\Container\Argument\RawArgument('my_super_secret_session_key')
+        ]
+    );
+
+$session = $container->get('Lulu\Session\Session2');
+echo "<br />";
+var_dump($session instanceof Lulu\Session\Session2); // true
+var_dump($session->storage instanceof Lulu\Session\Storage2); // true
 var_dump($session->sessionKey === 'my_super_secret_session_key'); // true
