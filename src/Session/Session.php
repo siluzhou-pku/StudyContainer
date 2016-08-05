@@ -9,16 +9,22 @@ namespace Lulu\Session;
 
 class Session
 {
-    public $storage;
-
-    public $sessionKey;
-
-    public function __construct(StorageInterface $storage, $sessionKey)
-    {
-        $this->storage    = $storage;
-        $this->sessionKey = $sessionKey;
-    }
+//    public $storage;
+//
+//    public $sessionKey;
+//
+//    public function __construct(StorageInterface $storage, $sessionKey)
+//    {
+//        $this->storage    = $storage;
+//        $this->sessionKey = $sessionKey;
+//    }
 }
+class User
+{
+
+}
+
+
 
 interface StorageInterface
 {

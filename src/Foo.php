@@ -7,6 +7,7 @@
  * Time: 11:31
  */
 namespace Lulu;
+
 class Foo
 {
     public $bar;
