@@ -143,3 +143,8 @@ var_dump($foo instanceof Lulu\Foo2); // true
 var_dump($foo->bar instanceof Lulu\Bar2); // true
 var_dump($foo->baz instanceof Lulu\Baz); // true
 var_dump($foo->bar->bam instanceof Lulu\Bam); // true
+
+
+//测试service provider
+$container->addServiceProvider(new Lulu\ServiceProvider\SomeServiceProvider);
+$container->addServiceProvider('Lulu\ServiceProvider\SomeServiceProvider');
