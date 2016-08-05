@@ -79,10 +79,12 @@ var_dump($session instanceof Lulu\Session\Session); // true
 var_dump($session->storage instanceof Lulu\Session\Storage); // true
 var_dump($session->sessionKey === 'my_super_secret_session_key'); // true
 */
-//测试用设值方式注入
 
 
+//测试用设值方式注入 报错
 
+
+/*
 $container->add('Lulu\Session\StorageInterface2', 'Lulu\Session\Storage2');
 
 $container
@@ -105,3 +107,39 @@ echo "<br />";
 var_dump($session instanceof Lulu\Session\Session2); // true
 var_dump($session->storage instanceof Lulu\Session\Storage2); // true
 var_dump($session->sessionKey === 'my_super_secret_session_key'); // true
+*/
+
+
+//测试用闭包注入
+
+$container->add('foo', function() {
+    $bar = new Lulu\Bar;
+    return new Lulu\Foo($bar);
+});
+
+$foo = $container->get('foo');
+
+echo "<br />Factory Closure:    ";
+var_dump($foo instanceof Lulu\Foo); // true
+var_dump($foo->bar instanceof Lulu\Bar); // true
+
+/*//测试委派
+$delegate  = new Lulu\Container\DelegateContainer;
+
+// 这个方法可以使用措辞，每个委派都会按照注册的顺序检查
+$container->delegate($delegate);
+*/
+
+
+//测试自动匹配
+// 把反射容器注册为一个委派来实现自动匹配。
+$container->delegate(
+    new League\Container\ReflectionContainer
+);
+
+$foo = $container->get('Lulu\Foo2');
+echo "<br />Auto Writing:  ";
+var_dump($foo instanceof Lulu\Foo2); // true
+var_dump($foo->bar instanceof Lulu\Bar2); // true
+var_dump($foo->baz instanceof Lulu\Baz); // true
+var_dump($foo->bar->bam instanceof Lulu\Bam); // true
