@@ -1,19 +1,17 @@
 <?php
-
 /**
  * Created by PhpStorm.
- * User: Zhousilu
- * Date: 2016/8/5
- * Time: 15:23
+ * User: lulu
+ * Date: 2016/8/6
+ * Time: 11:12
  */
 
-
-namespace Lulu\ServiceProvider;
+namespace App\ServiceProvider;
 
 use League\Container\ServiceProvider\AbstractServiceProvider;
-
 class SomeServiceProvider extends AbstractServiceProvider
 {
+
     /**
      * The provides array is a way to let the container
      * know that a service is provided by this service
@@ -48,4 +46,3 @@ class SomeServiceProvider extends AbstractServiceProvider
         $this->getContainer()->add('Some\Model');
     }
 }
-

@@ -2,21 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: lulu
- * Date: 2016/8/5
- * Time: 11:32
+ * Date: 2016/8/6
+ * Time: 11:00
  */
 
-namespace Lulu;
+namespace App\Foo2;
 
 
 class Bar
-{
-
-}
-
-
-
-class Bar2
 {
     public $bam;
 
@@ -24,13 +17,5 @@ class Bar2
     {
         $this->bam = $bam;
     }
-}
 
-class Baz
-{
-    // ..
-}
-class Bam
-{
-    // ..
 }

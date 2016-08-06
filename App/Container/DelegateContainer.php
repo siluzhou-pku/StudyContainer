@@ -1,20 +1,20 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: lulu
- * Date: 2016/8/5
- * Time: 11:39
+ * Date: 2016/8/6
+ * Time: 10:57
  */
-
-namespace Lulu\Container;
-
+namespace App\Container;
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
 use Interop\Container\Exception\NotFoundException;
 
-class DelegateContainer implements ContainerInterface
+class DelegateContainer  implements ContainerInterface
 {
-    // ..
+
+
     /**
      * Finds an entry of the container by its identifier and returns it.
      *
