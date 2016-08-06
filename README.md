@@ -141,7 +141,7 @@ var_dump($service1 instanceof Acme\Service\SomeService); // true
 var_dump($service1 === $service2); // true
 ```
 ## Documentation
-- [Usages](https://github.com/siluzhou/DBDriver/blob/master/docs/01-usage.md)
+- [中文文档](https://github.com/siluzhou/StudyContainer/wiki/thephpleague%E4%B8%AD%E6%96%87)
 
 ## License
 
