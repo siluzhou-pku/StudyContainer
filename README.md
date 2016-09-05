@@ -38,8 +38,8 @@ composer require league/container
 require 'vendor/autoload.php';
 
 ```
+更多方法请看 [Install](https://github.com/siluzhou-pku/St)
 
-更多方法请看 [Install](https://github.com/siluzhou-pku/u/StudyContainer/wiki/Install)文档
 ## Basic Usage
 
 container允许您注册服务。下面以类Someservice为例。
@@ -79,6 +79,7 @@ var_dump($service1 === $service2); // false
 - [Basic Usage](https://github.com/siluzhou-pku/StudyWiki/wiki/Container_Basic-Uasge)
 - [Advanced](https://github.com/siluzhou-pku/StudyWiki/wiki/Container_Advanced)
 - [thephpleague 中文](https://github.com/siluzhou-pku/StudyWiki/wiki/Container_thephpleaguez%E4%B8%AD%E6%96%87)
+
 ## License
 
 StudyContainer is licensed under the MIT License
