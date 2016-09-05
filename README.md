@@ -38,8 +38,8 @@ composer require league/container
 require 'vendor/autoload.php';
 
 ```
-更多方法请看 [Install](https://github.com/siluzhou-pku/St)
-
+更多方法请看
+[install](https://github.com/siluzhou-pku/StudyWiki/wiki/Container_Install)
 ## Basic Usage
 
 container允许您注册服务。下面以类Someservice为例。
